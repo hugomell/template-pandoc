@@ -1,0 +1,47 @@
+[pattern.weave]
+targets = ["site/{basename}.html"]
+dependencies = ["docs/{basename}.md", "site/css/light.css"]
+language = "Python"
+script = """
+import subprocess
+from pathlib import Path
+
+output_type = "html5"
+lua_filters = ["annotate", "eval", "details"]
+input_dir = Path("docs")
+output_dir = Path("site")
+
+scripts = Path(".entangled/scripts")
+lua_filter_scripts = [scripts / f"{{lf}}.lua" for lf in lua_filters]
+
+output_dir.mkdir(exist_ok=True, parents=True)
+output_file = output_dir / "{basename}.html"
+input_file = input_dir / "{basename}.md"
+
+pandoc_args  = [ "pandoc", "-t", output_type, "-s" ]
+for lf in lua_filter_scripts:
+    pandoc_args += [ "--lua-filter", str(lf) ]
+pandoc_args += [ "--toc-depth", "1" ]
+pandoc_args += [ "--template", ".entangled/template/template.html" ]
+pandoc_args += [ "--css", "css/light.css" ]
+pandoc_args += [ "-o", str(output_file) ]
+pandoc_args += [ str(input_file) ]
+
+subprocess.run(pandoc_args)
+"""
+
+[pattern.copy]
+targets = ["{target}"]
+dependencies = ["{source}"]
+language = "Bash"
+script = """
+mkdir -p $(dirname "{target}")
+cp "{source}" "{target}"
+"""
+
+[[call]]
+pattern = "copy"
+  [call.args]
+  source = ".entangled/template/light.css"
+  target = "site/css/light.css"
+

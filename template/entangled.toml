@@ -1,0 +1,15 @@
+version = "2.0"
+watch_list = ["docs/**/*.md"]
+
+[loom]
+include = [ ".entangled/weave.toml" ]
+
+[[loom.task]]
+targets = ["phony(weave)"]
+dependencies = ["site/index.html"]
+
+[[loom.call]]
+pattern = "weave"
+  [loom.call.args]
+  basename = "index"
+
