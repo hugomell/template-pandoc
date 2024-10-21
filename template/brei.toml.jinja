@@ -1,0 +1,17 @@
+include = ["docs/weave.toml"]
+
+[environment]
+title = "{{project_name}}"
+subtitle = "{{tag_line}}"
+
+[[call]]
+template = "pandoc"
+collect = "html"
+[call.args]
+basename = ["index"]   # add your pages to this list
+
+[[task]]
+name = "site"
+description = "Deploy site"
+requires = ["#html", "#static"]
+
