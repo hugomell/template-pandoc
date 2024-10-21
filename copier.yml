@@ -3,3 +3,13 @@ _subdirectory: template
 _message_after_copy: |
     Your Entangled project has been generated
 
+project_name:
+  type: str
+  help: What is the name or title of your project?
+  default: My New Entangled Project
+
+tag_line:
+  type: str
+  help: Do you have a tag-line or subtitle?
+  default: ""
+

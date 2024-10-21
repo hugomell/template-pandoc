@@ -1,6 +1,6 @@
 [environment]
-title = "Entangled"
-subtitle = "Introduction to Brei"
+title = "{{project_name}}"
+subtitle = "{{tag_line}}"
 
 pandoc_args = """
 ${pandoc_format} ${pandoc_style} ${pandoc_template} ${pandoc_filters} \
@@ -51,3 +51,5 @@ script = """
 mkdir -p '${tgtdir}'
 cp '${srcdir}/${basename}' '${tgtdir}'
 """
+
+# vim:ft=toml
