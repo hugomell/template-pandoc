@@ -15,7 +15,9 @@ pandoc_filters = """
 --lua-filter ${filter_dir}/details.lua \
 --lua-filter ${filter_dir}/eqnos.lua \
 --lua-filter ${filter_dir}/eval.lua \
---lua-filter ${filter_dir}/links.lua"""
+--lua-filter ${filter_dir}/links.lua \
+-M link-citations=true \
+--citeproc --bibliography docs/ref.bib"""
 
 filter_dir = "docs/filters"
 

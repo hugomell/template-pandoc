@@ -2,18 +2,25 @@
 
 /* === Colors ====================================== */
 :root {
-  --primary-hue: 30deg;
-  --secondary-hue: 350deg;
+  --primary-hue: 20deg;
+  --secondary-hue: 330deg;
   --background: white;
   --text-color: black;
   --code-block-bg: hsl(var(--secondary-hue) 20% 20%);
   --header-text-color: hsl(var(--primary-hue) 50% 10%);
-  --nav-text: hsl(var(--primary-hue) 40% 50%);
-  --nav-text-hover: hsl(var(--primary-hue) 40% 30%);
+  --nav-text: hsl(var(--primary-hue) 40% 30%);
+  --nav-text-hover: hsl(var(--primary-hue) 40% 50%);
   --border-color: hsl(var(--primary-hue) 40% 60%);
 }
 
-.dark-mode {
+header {
+  color: var(--header-text-color);
+  background: hsl(var(--primary-hue) 30% 80%);
+  border-bottom: solid thick hsl(var(--secondary-hue), 40%, 50%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
    --background: #222222;
    --text-color: white;
    --nav-text-lum: 60%;
@@ -21,18 +28,12 @@
    --header-text-color: hsl(var(--primary-hue) 50% 60%);
    --nav-text: hsl(var(--primary-hue) 40% 60%);
    --nav-text-hover: hsl(var(--primary-hue) 40% 70%);
-}
+  }
 
-button {
-    color: var(--nav-text);
-    background: #00000010;
-    border: thin solid #0006;
-    padding: 5pt 10pt;
-    border-radius: 5pt;
-}
-
-button:hover {
-    background: #00000030;
+  header {
+    color: hsl(var(--primary-hue) 60% 70%);
+    background: hsl(var(--primary-hue) 10% 20%);
+  }
 }
 
 body {
@@ -40,11 +41,6 @@ body {
   color: var(--text-color);
 }
 
-header {
-  color: var(--header-text-color);
-  background: #00000020;
-  border-bottom: solid thick hsl(var(--primary-hue), 40%, 30%);
-}
 
 header div {
   filter: drop-shadow(0px 1px 1px #00000018);
@@ -79,9 +75,9 @@ a {
 
 /* === Fonts ======================================= */
 body {
-  font-weight: 240;
-  font-size: 12pt;
-  font-family: "Noto Sans Display", sans-serif;
+  font-weight: 300;
+  font-size: 13pt;
+  font-family: "Noto Sans", sans-serif;
 }
 
 code {
@@ -154,7 +150,7 @@ body {
     padding-left: 10pt;
     list-style-type: none;
     font-weight: 400;
-    border-left: solid thick #00000030;
+    border-left: solid thick #8884;
 }
 
 #menu ul ul {
@@ -180,7 +176,9 @@ body {
 
 #main h1 {
     margin-top: 10pt;
-    border-bottom: solid thick #00000030;
+    border-bottom-color: #8884;
+    border-bottom-width: thick;
+    border-bottom-style: solid;
     line-height: normal;
 }
 
@@ -211,7 +209,7 @@ details {
     padding: 5pt;
     margin: 10pt 20pt 10pt 20pt;
     border-radius: 5pt;
-    border-left: thick solid #00000030;
+    border-left: thick solid #8884;
     box-shadow: 0px 0px 1px #88888855;
 }
 
@@ -417,7 +415,7 @@ html {
     }
     
     #menu ul {
-        border-left: solid thick #00000030;
+        border-left: solid thick #8884;
         padding-left: 10pt;
     }
 
@@ -435,7 +433,7 @@ html {
     #contents {
         width: 100%;
         margin: 0;
-        border-bottom: solid thick #00000030;
+        border-bottom: solid thick #8884;
     }
     #contents .sticky {
         display: flex;
@@ -568,3 +566,4 @@ html {
   .col-11 {width: 91.66%;}
   .col-12 {width: 100%;}
 }
+

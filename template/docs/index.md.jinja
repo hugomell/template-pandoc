@@ -1,45 +1,110 @@
-Welcome to Entangled! This is the project template for working with Pandoc.
+{% raw %}
+Welcome to Entangled! This is the project template for working with Pandoc. The template is shipped with a friendly HTML template ideal for documenting projects or writing research notes.
 
-## Building
+# Building
 
 To build this template, run
 
 ```
-brei site
+brei weave
 ```
 
 The site will appear in `docs/site`.
 
 ## Important files
 
-- `docs/index.md` source for this page
-- `docs/contents.md` source for the contents on the left
-- `docs/weave.toml` build rules for pandoc
-- `docs/template` HTML template, including style sheets
+| file or directory | description |
+|---|---|
+| `docs/index.md` | source for this page |
+| `docs/ref.bib` | BibTeX references |
+| `docs/contents.md` | source for the contents on the left |
+| `docs/weave.toml` | build rules for Pandoc |
+| `docs/template` | HTML template, including style sheets |
+| `docs/filters` | Lua filters for enhancing document rendering |
 
-## Features
+# Features
 
-### Numbered math equations
+## Citations
 
-{% raw %}
+Please consider citing [@Hidding2023] if you use Entangled in your research.
+
+## Numbered equations
+
+Equations are numbered and cross-referenced.
+
 [$$a^2 + b^2 = c^2$$]{#eq:pythagoras}
-{% endraw %}
 
-For Pythogaras theorem, refer to Eq @{eq:pythagoras}.
+For Pythagoras theorem, refer to Equation @{eq:pythagoras}.
 
-### Detail blocks
+Einstein said,
+
+[$$G_{\mu\nu} + \Lambda g_{\mu\nu} = \kappa T_{\mu\nu}.$$]{#eq:einstein}
+
+Isn't that wonderful! Equations need to be enclosed in a span (`[]{}` syntax) and have an identifier starting with `eq:`.
+
+## Code blocks
+
+Code blocks are annotated. In this example we compute Eulers constant using the formula,
+
+[$$e = 1 + {1 \over 2!} + {1 \over 3!} + \dots$$]{#eq:eulers-constant}
+
+:::callout
+
+### Taylor Expansions
+
+This can be derived from the Taylor expansion of $f(x) = exp(x)$.
+:::
+
+``` {.c #euler-constant}
+double euler_constant() {
+  double e = 2.0;
+  double k = 1.0;
+  unsigned i = 1;
+  
+  while (k > DBL_EPSILON) {
+    k /= ++i;
+    e += k;
+  }
+  return e;
+}
+```
+
+This can be displayed in a small program.
+
+``` {.c file=src/euler.c}
+#include <float.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+<<euler-constant>>
+
+int main() {
+  printf("Euler's constant: %f\n", euler_constant());
+  return EXIT_SUCCESS;
+}
+```
+
+## Detail blocks
+
+In many cases you'll want to hide parts of your document for the casual reader. Detail blocks will be folded when the page loads, but interested readers can still get there.
 
 :::details
+
 ## Unfold for more details
 
 More details than you ever wished for.
 :::
 
-### Evaluate code blocks
+## Evaluate code blocks
 
-You can evaluate code blocks in your shell. 
+You can evaluate code blocks in your shell.
 
 ``` {.bash .eval}
 echo "Hello, World!"
 ```
 
+# Bibliography
+
+::: {#refs}
+:::
+{% endraw %}
