@@ -1,0 +1,8 @@
+include = ["docs/weave.toml"]
+
+[[call]]
+template = "pandoc"
+collect = "site"
+[call.args]
+basename = ["index"]
+
