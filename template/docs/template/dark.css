@@ -264,9 +264,9 @@ div.table table tr:nth-child(odd) {
 }
 
 .callout h3 {
-    background: var(--primary);
+    background: hsl(var(--primary-hue) 50% 50%);
+    color: white;
     padding: 3pt 0pt 3pt 10pt;
-    text-shadow: 0px 0px 2px #000000A0;
     border-radius: 5pt 5pt 0pt 0pt;
 }
 
@@ -277,10 +277,10 @@ div.table table tr:nth-child(odd) {
 
 .callout {
     margin: 20pt 40pt 20pt 40pt;
-    background: #00000008;
+    background: #8884;
     padding-bottom: 5pt;
     border-radius: 5pt;
-    box-shadow: 1px 1px 2px #00000022;
+    box-shadow: 1px 1px 2px #8882;
 }
 
 .callout p {
