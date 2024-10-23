@@ -1,0 +1,14 @@
+{
+  "files": [
+    {
+      "deps": null,
+      "hexdigest": "d85cd617a1871c2daf51a745ed2f06df94032a3a0854d04aa3116948c53e39f8",
+      "modified": "2023-11-06T23:29:31.216427",
+      "path": "template/docs/contents.md",
+      "size": 103
+    }
+  ],
+  "source": [],
+  "target": [],
+  "version": "2.1.10"
+}
