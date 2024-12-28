@@ -11,6 +11,14 @@ collect = "html"
 basename = ["index"]   # add your pages to this list
 
 [[task]]
+name = "copy-notebooks"
+description = "Copy markdown files to docs/"
+runner = "bash"
+script = """
+cp notebooks/*.md docs/
+"""
+
+[[task]]
 name = "weave"
 description = "Deploy site"
 requires = ["#html", "#static"]
