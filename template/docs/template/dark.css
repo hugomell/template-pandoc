@@ -18,6 +18,10 @@ header {
   background: hsl(var(--primary-hue) 15% 50%);
   border-bottom: solid thick hsl(var(--secondary-hue), 20%, 30%);
   text-shadow: 2px 2px 2px #8888;
+
+  a {
+    color: inherit;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
