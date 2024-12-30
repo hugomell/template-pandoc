@@ -348,7 +348,7 @@ div.sourceCode {
     box-shadow: 2px 2px 2px #8884;
     border-radius: 5pt;
     padding: 10pt 10pt 10pt 15pt;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .doctest {
