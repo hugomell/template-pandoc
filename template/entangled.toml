@@ -1,5 +1,5 @@
 version = "2.0"
-watch_list = ["docs/**/*.md", "notebooks/**/*.md"]
+watch_list = ["docs/index.md", "docs/contents.md", "notebooks/**/*.md"]
 
 hooks = ["quarto_attributes"]
 
