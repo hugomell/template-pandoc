@@ -1,14 +1,25 @@
+
+# Setup
+
+
+
+# Brei tasks
+
+## File - brei.toml
+
+```toml
+#| file: brei.toml
 include = ["docs/weave.toml"]
 
 [environment]
-title = "{{project_name}}"
-subtitle = "{{tag_line}}"
+title = "Data extraction from PDF"
+subtitle = ""
 
 [[call]]
 template = "pandoc"
 collect = "html"
 [call.args]
-basename = ["index"]   # add your pages to this list
+basename = ["index", "00-project-workflow"]   # add your pages to this list
 
 [[task]]
 name = "copy-before-weave"
@@ -23,4 +34,19 @@ cp -r docs/assets docs/site/
 name = "weave"
 description = "Deploy site"
 requires = ["#copy-before-weave", "#html", "#static"]
+```
 
+
+
+# Make
+
+## File - Makefile
+
+```make
+#| file: Makefile
+.PHONY: all preview
+all:
+	entangled tangle && brei weave
+preview:
+	firefox docs/site/index.html
+```
