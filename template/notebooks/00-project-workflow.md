@@ -9,11 +9,7 @@
 
 ```toml
 #| file: brei.toml
-include = ["docs/weave.toml"]
-
-[environment]
-title = "Data extraction from PDF"
-subtitle = ""
+include = ["docs/weave.toml", "docs/title.toml"]
 
 [[call]]
 template = "pandoc"
